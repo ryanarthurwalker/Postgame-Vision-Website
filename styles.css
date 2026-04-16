@@ -95,15 +95,21 @@ h3 {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
+  display: block;
+  width: 56px;
+  height: 42px;
+  border: 1px solid rgba(96, 165, 250, 0.42);
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  background: #000;
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.22);
+  overflow: hidden;
+}
+
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.28);
 }
 
 .brand-copy {
@@ -289,10 +295,51 @@ h3 {
 .support-card,
 .legal-card,
 .callout,
+.logo-showcase,
 .media-placeholder {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface-strong);
+}
+
+.logo-showcase {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.22), transparent 44%),
+    #101013;
+}
+
+.logo-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 165, 250, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.logo-showcase img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  object-fit: cover;
+  background: #000;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.36),
+    0 0 38px rgba(59, 130, 246, 0.24);
+}
+
+.logo-showcase p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .device-card {
