@@ -299,10 +299,40 @@ h3 {
 .legal-card,
 .callout,
 .logo-showcase,
+.product-shot,
 .media-placeholder {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--surface-strong);
+}
+
+.product-shot {
+  margin: 0;
+  padding: 14px;
+  box-shadow: 0 20px 48px rgba(8, 8, 8, 0.08);
+}
+
+.product-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(8, 8, 8, 0.1);
+  border-radius: 18px;
+  background: #0f1117;
+}
+
+.product-shot figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.product-shot-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
 }
 
 .logo-showcase {
@@ -609,8 +639,20 @@ h3 {
     var(--surface);
 }
 
+.support-intro {
+  max-width: 72ch;
+  margin: -8px 0 26px;
+  color: var(--muted);
+}
+
 .support-card {
   text-align: center;
+}
+
+.support-note {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-weight: 700;
 }
 
 .price {
@@ -646,6 +688,17 @@ h3 {
   margin: 12px 0 0;
 }
 
+.faq-list code {
+  padding: 0.12rem 0.38rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.07);
+  color: var(--accent-deep);
+  font-family: inherit;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
 .compact {
   gap: 6px;
 }
@@ -653,6 +706,25 @@ h3 {
 .effective-date {
   font-weight: 700;
   color: var(--text);
+}
+
+.legal-card a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.07);
+}
+
+.text-link:hover {
+  background: rgba(37, 99, 235, 0.12);
 }
 
 .footer {
@@ -687,6 +759,10 @@ h3 {
   }
 
   .device-stack {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-shot-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -731,7 +807,8 @@ h3 {
   .steps,
   .pillars,
   .legal-grid,
-  .device-stack {
+  .device-stack,
+  .product-shot-grid {
     grid-template-columns: 1fr;
   }
 
