@@ -1,19 +1,23 @@
 :root {
-  --bg: #f7f6f2;
-  --bg-strong: #ece9e2;
-  --surface: rgba(255, 255, 255, 0.92);
-  --surface-strong: #ffffff;
-  --text: #080808;
-  --muted: #5f6368;
-  --line: rgba(8, 8, 8, 0.1);
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-deep: #1e40af;
-  --accent-soft: rgba(37, 99, 235, 0.1);
-  --success: #059669;
-  --warning: #d97706;
+  --bg: #f6efe3;
+  --bg-strong: #ead9bf;
+  --surface: rgba(255, 252, 244, 0.92);
+  --surface-strong: #fffaf0;
+  --ink: #07111f;
+  --text: #101820;
+  --muted: #59616c;
+  --line: rgba(16, 24, 32, 0.12);
+  --accent: #1d72ff;
+  --accent-hover: #0f55c7;
+  --accent-deep: #0b2f5f;
+  --accent-soft: rgba(29, 114, 255, 0.12);
+  --court: #c8752d;
+  --court-deep: #8d451c;
+  --court-soft: rgba(200, 117, 45, 0.14);
+  --success: #0f9f6e;
+  --warning: #c8752d;
   --error: #dc2626;
-  --shadow: 0 24px 60px rgba(8, 8, 8, 0.08);
+  --shadow: 0 28px 70px rgba(7, 17, 31, 0.12);
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 16px;
@@ -36,9 +40,9 @@ body {
   font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
   line-height: 1.55;
   background:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.1), transparent 30%),
-    radial-gradient(circle at top right, rgba(8, 8, 8, 0.05), transparent 26%),
-    linear-gradient(180deg, #ffffff 0%, var(--bg) 54%, #efede7 100%);
+    radial-gradient(circle at 12% 0%, rgba(29, 114, 255, 0.16), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(200, 117, 45, 0.18), transparent 30%),
+    linear-gradient(180deg, #fffaf0 0%, var(--bg) 50%, var(--bg-strong) 100%);
 }
 
 body::before {
@@ -47,8 +51,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(8, 8, 8, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(8, 8, 8, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(7, 17, 31, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 17, 31, 0.04) 1px, transparent 1px);
   background-size: 26px 26px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 85%);
 }
@@ -81,7 +85,7 @@ h3 {
   margin-bottom: 24px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 250, 240, 0.88);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 16px;
@@ -150,8 +154,10 @@ h3 {
   overflow: hidden;
   position: relative;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 246, 242, 0.92)),
-    var(--surface);
+    radial-gradient(circle at 86% 20%, rgba(29, 114, 255, 0.24), transparent 32%),
+    radial-gradient(circle at 14% 100%, rgba(200, 117, 45, 0.2), transparent 34%),
+    linear-gradient(135deg, #07111f 0%, #0b1830 56%, #10223d 100%);
+  color: #fffaf0;
 }
 
 .hero::after {
@@ -161,7 +167,16 @@ h3 {
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 62%);
+  background: radial-gradient(circle, rgba(200, 117, 45, 0.28), transparent 62%);
+}
+
+.hero .hero-subheadline,
+.hero .hero-points {
+  color: rgba(255, 250, 240, 0.74);
+}
+
+.hero .eyebrow {
+  color: #f2b36f;
 }
 
 .eyebrow {
@@ -248,23 +263,30 @@ h3 {
 }
 
 .button-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
   color: #fff;
+  box-shadow: 0 14px 32px rgba(29, 114, 255, 0.28);
 }
 
 .button-primary:hover {
-  background: var(--accent-hover);
+  background: linear-gradient(135deg, #3381ff, var(--accent-hover));
 }
 
 .button-secondary {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.84);
+  background: rgba(255, 250, 240, 0.84);
   color: var(--text);
 }
 
+.hero .button-secondary {
+  border-color: rgba(255, 250, 240, 0.28);
+  background: rgba(255, 250, 240, 0.1);
+  color: #fffaf0;
+}
+
 .button-secondary:hover {
-  border-color: rgba(37, 99, 235, 0.28);
-  background: rgba(37, 99, 235, 0.06);
+  border-color: rgba(29, 114, 255, 0.32);
+  background: rgba(29, 114, 255, 0.08);
 }
 
 .hero-points,
@@ -303,13 +325,15 @@ h3 {
 .media-placeholder {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: var(--surface-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 250, 240, 0.96)),
+    var(--surface-strong);
 }
 
 .product-shot {
   margin: 0;
   padding: 14px;
-  box-shadow: 0 20px 48px rgba(8, 8, 8, 0.08);
+  box-shadow: 0 22px 54px rgba(7, 17, 31, 0.14);
 }
 
 .product-shot img {
@@ -318,7 +342,7 @@ h3 {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   object-position: center;
-  border: 1px solid rgba(8, 8, 8, 0.1);
+  border: 1px solid rgba(7, 17, 31, 0.14);
   border-radius: 18px;
   background: #0f1117;
 }
@@ -342,8 +366,8 @@ h3 {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12), transparent 46%),
-    linear-gradient(180deg, #ffffff, #f3f2ee);
+    radial-gradient(circle at 50% 0%, rgba(29, 114, 255, 0.14), transparent 46%),
+    linear-gradient(180deg, #fffaf0, #f1e2c9);
 }
 
 .logo-showcase::before {
@@ -353,22 +377,22 @@ h3 {
   border-radius: inherit;
   pointer-events: none;
   box-shadow:
-    inset 0 0 0 1px rgba(37, 99, 235, 0.12),
+    inset 0 0 0 1px rgba(29, 114, 255, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .logo-showcase img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 1px solid rgba(8, 8, 8, 0.12);
+  border: 1px solid rgba(7, 17, 31, 0.14);
   border-radius: 18px;
   object-fit: contain;
   background:
-    linear-gradient(135deg, rgba(8, 8, 8, 0.025), transparent),
-    #fff;
+    linear-gradient(135deg, rgba(7, 17, 31, 0.035), transparent),
+    #fffaf0;
   padding: 28px;
   box-shadow:
-    0 24px 60px rgba(8, 8, 8, 0.16),
+    0 24px 60px rgba(7, 17, 31, 0.18),
     0 0 0 8px rgba(255, 255, 255, 0.7);
 }
 
@@ -405,7 +429,7 @@ h3 {
   padding: 16px;
   border-radius: 22px;
   background:
-    linear-gradient(180deg, rgba(10, 15, 24, 0.92), rgba(10, 15, 24, 0.99)),
+    linear-gradient(180deg, rgba(7, 17, 31, 0.94), rgba(7, 17, 31, 0.99)),
     linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent);
   color: #fff;
   position: relative;
@@ -438,13 +462,13 @@ h3 {
 }
 
 .chip:nth-child(2) {
-  border: 1px solid rgba(217, 119, 6, 0.42);
-  color: #fbbf24;
+  border: 1px solid rgba(200, 117, 45, 0.5);
+  color: #f2b36f;
 }
 
 .chip:nth-child(3) {
-  border: 1px solid rgba(59, 130, 246, 0.42);
-  color: #bfdbfe;
+  border: 1px solid rgba(29, 114, 255, 0.46);
+  color: #bed8ff;
 }
 
 .court-lines {
@@ -520,8 +544,8 @@ h3 {
 .export-card {
   padding: 14px 16px;
   border-radius: 16px;
-  background: rgba(59, 130, 246, 0.16);
-  border: 1px solid rgba(59, 130, 246, 0.32);
+  background: rgba(29, 114, 255, 0.16);
+  border: 1px solid rgba(29, 114, 255, 0.32);
 }
 
 .media-placeholder {
@@ -597,7 +621,9 @@ h3 {
 
 .callout {
   padding: 28px;
-  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08), rgba(255, 255, 255, 0.98));
+  background:
+    radial-gradient(circle at 100% 0%, rgba(200, 117, 45, 0.15), transparent 42%),
+    linear-gradient(180deg, rgba(29, 114, 255, 0.09), rgba(255, 250, 240, 0.98));
 }
 
 .callout-label {
@@ -635,7 +661,8 @@ h3 {
 
 .support-section {
   background:
-    linear-gradient(180deg, rgba(37, 99, 235, 0.06), rgba(255, 255, 255, 0.96)),
+    radial-gradient(circle at 12% 0%, rgba(200, 117, 45, 0.13), transparent 32%),
+    linear-gradient(180deg, rgba(29, 114, 255, 0.07), rgba(255, 250, 240, 0.96)),
     var(--surface);
 }
 
@@ -671,7 +698,7 @@ h3 {
   padding: 20px 22px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 250, 240, 0.8);
 }
 
 .faq-list summary {
@@ -692,7 +719,7 @@ h3 {
   padding: 0.12rem 0.38rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(37, 99, 235, 0.07);
+  background: rgba(29, 114, 255, 0.08);
   color: var(--accent-deep);
   font-family: inherit;
   font-size: 0.9em;
@@ -718,13 +745,13 @@ h3 {
   align-items: center;
   min-height: 42px;
   padding: 0 16px;
-  border: 1px solid rgba(37, 99, 235, 0.24);
+  border: 1px solid rgba(29, 114, 255, 0.26);
   border-radius: 999px;
-  background: rgba(37, 99, 235, 0.07);
+  background: rgba(29, 114, 255, 0.08);
 }
 
 .text-link:hover {
-  background: rgba(37, 99, 235, 0.12);
+  background: rgba(29, 114, 255, 0.14);
 }
 
 .footer {
